@@ -1,6 +1,6 @@
 import React from 'react';
 
-function PopupForm(props) {
+function PopupWithForm(props) {
 
   function handlePopupOpen () {
     return 'popup_opened'
@@ -25,4 +25,4 @@ function PopupForm(props) {
   );
 } 
 
-export default PopupForm
+export default PopupWithForm

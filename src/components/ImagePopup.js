@@ -1,6 +1,6 @@
 import React from 'react';
 
-function PopupImage(props) {
+function ImagePopup(props) {
   
   function handlePopupOpen () {
     return 'popup_opened'
@@ -21,4 +21,4 @@ function PopupImage(props) {
   );
 } 
 
-export default PopupImage
+export default ImagePopup
