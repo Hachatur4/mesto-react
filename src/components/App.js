@@ -2,8 +2,8 @@ import React from 'react';
 import Header from './Header.js'
 import Main from './Main'
 import Footer from './Footer'
-import PopupForm from './PopupWithForm.js'
-import PopupImage from './ImagePopup.js'
+import PopupWithForm from './PopupWithForm.js'
+import ImagePopup from './ImagePopup.js'
 
 function App() {
 
@@ -43,11 +43,11 @@ function App() {
         onCardClick={handleCardClick}
       />
       <Footer/>
-      <PopupImage 
+      <ImagePopup 
       card={selectedCard} 
       onClose={closeAllPopups}
       />
-      <PopupForm 
+      <PopupWithForm 
         name='card' 
         title='Новое место' 
         buttonTitle='Создать' 
@@ -77,8 +77,8 @@ function App() {
               />
               <span className="form__input-error link-input-error"></span>
             </label>
-      </PopupForm>
-      <PopupForm 
+      </PopupWithForm>
+      <PopupWithForm 
         name='profile' 
         title='Редактировать профиль' 
         buttonTitle='Сохранить' 
@@ -110,8 +110,8 @@ function App() {
               />
               <span className="form__input-error job-input-error"></span>
             </label>
-      </PopupForm>
-      <PopupForm 
+      </PopupWithForm>
+      <PopupWithForm 
         name='changeAvatar' 
         title='Обновить аватар' 
         buttonTitle='Сохранить' 
@@ -128,7 +128,7 @@ function App() {
               />
               <span className="form__input-error avatar-input-error"></span>
             </label>
-      </PopupForm>
+      </PopupWithForm>
     </div>
   );
 }

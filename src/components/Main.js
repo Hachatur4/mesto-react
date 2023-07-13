@@ -1,6 +1,6 @@
 import React from 'react'
 import api from '../utils/api'
-import Cards from './Cards.js'
+import Card from './Card.js'
 
 function Main (props) {
 
@@ -58,7 +58,7 @@ function Main (props) {
       </section>
       <section className="element">
         {cards.map((card)=>(
-          <Cards 
+          <Card
             key={card.id}
             card={card}
             onCardClick={props.onCardClick}
