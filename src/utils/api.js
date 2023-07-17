@@ -16,7 +16,7 @@ class Api {
         'Content-Type': this._contentType
       },
     })
-    .then(res => this._resStatus(res)) 
+    .then(res => this._checkResStatus(res)) 
   }
 
   createCard(data){
@@ -31,7 +31,7 @@ class Api {
         link: data.link
       })
     })
-    .then(res => this._resStatus(res))
+    .then(res => this._checkResStatus(res))
   }
 
   getUserInfo(){
@@ -41,7 +41,7 @@ class Api {
         'Content-Type': this._contentType
       },
     })
-    .then(res => this._resStatus(res)) 
+    .then(res => this._checkResStatus(res)) 
   }
 
   sendUserInfo(data){
@@ -56,7 +56,7 @@ class Api {
         about: data.profileJob
       })
     })
-    .then(res => this._resStatus(res))
+    .then(res => this._checkResStatus(res))
   }
 
   userAvatar(data){
@@ -70,7 +70,7 @@ class Api {
         avatar: data.avatarLink,
       })
     })
-    .then(res => this._resStatus(res))
+    .then(res => this._checkResStatus(res))
   }
 
   putLike(cardId){
@@ -81,7 +81,7 @@ class Api {
         'Content-Type': this._contentType
       },
     })
-    .then(res => this._resStatus(res)) 
+    .then(res => this._checkResStatus(res)) 
   }
 
   deleteLike(cardId){
@@ -92,7 +92,7 @@ class Api {
         'Content-Type': this._contentType
       },
     })
-    .then(res => this._resStatus(res)) 
+    .then(res => this._checkResStatus(res)) 
   }
 
   deleteCard(id){
@@ -103,10 +103,10 @@ class Api {
         'Content-Type': this._contentType
       },
     })
-    .then(res => this._resStatus(res)) 
+    .then(res => this._checkResStatus(res)) 
   }
 
-  _resStatus(res){
+  _checkResStatus(res){
     if(res.ok){
       return res.json()
     }else{
@@ -120,8 +120,8 @@ class Api {
 const api = new Api({
   baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-68',
   headers: {
-  authorization: '028c01f3-79c5-47ed-9e7a-c79c4643af33',
-  ContentType: 'application/json'
+    authorization: '028c01f3-79c5-47ed-9e7a-c79c4643af33',
+    ContentType: 'application/json'
   }
 })
 

@@ -4,35 +4,25 @@ import Card from './Card.js'
 
 function Main (props) {
 
-  const [userName, setUserName] = React.useState();
-  const [userDescription, setUserDescription] = React.useState();
-  const [userAvatar, setUuserAvatar] = React.useState();
+  const onCardClick = props.onCardClick
 
-  React.useEffect(() => {
-    api.getUserInfo()
-    .then((res)=>{
-      setUserName(res.name)
-      setUserDescription(res.about)
-      setUuserAvatar(res.avatar)
-    })
-    .catch((err)=> console.log(`catch: ${err}`))
-  },[userName, userDescription, userAvatar]); 
-
+  const [userName, setUserName] = React.useState('');
+  const [userDescription, setUserDescription] = React.useState('');
+  const [userAvatar, setUserAvatar] = React.useState('');
   const [cards, setCards] = React.useState([]);
 
   React.useEffect(() => {
-    api.getInitialCards()
-    .then((res)=>{
-      const cardsApi = res.map(item => ({
-        likes: item.likes.length,
-        link: item.link,
-        name: item.name,
-        id: item._id
-      }))
-      setCards(cardsApi)
-    })
-    .catch((err)=> console.log(`catch: ${err}`))
-  },[cards]);
+
+    api.getAppInfo()
+      .then(([cards, userData])=>{
+        setCards(cards)
+        setUserName(userData.name)
+        setUserDescription(userData.about)
+        setUserAvatar(userData.avatar)
+      })
+      .catch((err)=> console.log(`catch: ${err}`))
+  },[]); 
+
 
   return (
     <main className="content">
@@ -57,12 +47,11 @@ function Main (props) {
         <button type="button" className="profile__add-button"  onClick={props.onAddPlace}></button>
       </section>
       <section className="element">
-        {cards.map((card)=>(
-          <Card
-            key={card.id}
-            card={card}
-            onCardClick={props.onCardClick}
-          />
+      {cards.map(({_id, ...props}) =>(
+        <Card
+        key={_id}
+        card={props}
+        onCardClick={onCardClick}/>
         ))}
       </section>
     </main>

@@ -8,7 +8,7 @@ function Header () {
         src={logoHeader}
         alt="Логотип"
       />
-  </header>
+    </header>
   )
 }
 
