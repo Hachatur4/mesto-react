@@ -52,8 +52,8 @@ class Api {
         'Content-Type': this._contentType
       },
       body: JSON.stringify({
-        name: data.profileName,
-        about: data.profileJob
+        name: data.name,
+        about: data.about
       })
     })
     .then(res => this._checkResStatus(res))
@@ -67,7 +67,7 @@ class Api {
         'Content-Type': this._contentType
       },
       body: JSON.stringify({
-        avatar: data.avatarLink,
+        avatar: data.avatar,
       })
     })
     .then(res => this._checkResStatus(res))
