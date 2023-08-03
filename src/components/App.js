@@ -77,34 +77,27 @@ function App() {
     api.sendUserInfo(data)
     .then((res) => {
       setCurrentUser(res)
-    })
-    .catch((err)=> console.log(`catch: ${err}`))
-    .finally(()=>{
       closeAllPopups()
     })
-    
+    .catch((err)=> console.log(`catch: ${err}`))
   }
 
   function handleUpdateAvatar(data){
     api.userAvatar(data)
     .then((res) => {
       setCurrentUser(res)
-    })
-    .catch((err)=> console.log(`catch: ${err}`))
-    .finally(()=>{
       closeAllPopups()
     })
+    .catch((err)=> console.log(`catch: ${err}`))
   }
 
   function handleAddPlaceSubmit (cardData){
     api.createCard(cardData)
     .then((newCard) => {
-      setCards([newCard, ...cards]); 
-    })
-    .catch((err)=> console.log(`catch: ${err}`))
-    .finally(()=>{
+      setCards([newCard, ...cards]);
       closeAllPopups()
     })
+    .catch((err)=> console.log(`catch: ${err}`))
   }
 
   return (
